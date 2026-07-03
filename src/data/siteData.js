@@ -9,7 +9,7 @@ export const navItems = [
 
 export const links = {
   // TODO: 正式なチケット予約URLに差し替えてください。
-  ticket: "https://example.com/ticket",
+  ticket: "https://tiget.net/events/500368",
   // TODO: 正式なカンパ受付URLに差し替えてください。
   support: "https://example.com/support",
   // TODO: 正式な応援メッセージフォームURLに差し替えてください。
@@ -31,17 +31,17 @@ export const socialLinks = {
 
 export const lives = [
   {
-    id: "one-man-20260830",
+    id: "UNBOUND",
     date: "2026.08.30",
-    title: "ONE MAN LIVE",
-    open: "17:00",
-    start: "18:00",
-    venue: "SHIBUYA WWW X",
+    title: "MASAAKI 1st ONE MAN LIVE",
+    open: "11:00",
+    start: "11:15",
+    venue: "navey floor AKASAKA",
     city: "Tokyo",
     image: "/images/livehouse-stage.png",
     // TODO: 正式な予約URLに差し替えてください。
-    reserveUrl: links.ticket,
-    note: "次回ワンマンライブ。詳細は予約ページをご確認ください。",
+    reserveUrl: https://tiget.net/events/500368 ,
+    note: "MASAAKI 1st ワンマンライブ。詳細は予約ページをご確認ください。",
   },
   {
     id: "acoustic-20260914",
