@@ -40,7 +40,7 @@ export const lives = [
     city: "Tokyo",
     image: "/images/livehouse-stage.png",
     // TODO: 正式な予約URLに差し替えてください。
-    reserveUrl: https://tiget.net/events/500368 ,
+    reserveUrl: "https://tiget.net/events/500368",
     note: "MASAAKI 1st ワンマンライブ。詳細は予約ページをご確認ください。",
   },
   {
