@@ -19,14 +19,14 @@ export const links = {
 };
 
 export const socialLinks = {
+  // TODO: 必要に応じてMASAAKI公式Instagram URLを差し替えてください。
+  instagram: "https://www.instagram.com/mkleo_official/",
   // TODO: MASAAKI公式X URLに差し替えてください。
-  x: "https://example.com/x",
-  // TODO: MASAAKI公式Instagram URLに差し替えてください。
-  instagram: "https://example.com/instagram",
+  x: "https://x.com/masaaki_mkleo/",
   // TODO: MASAAKI公式TikTok URLに差し替えてください。
-  tiktok: "https://example.com/tiktok",
+  tiktok: "https://www.tiktok.com/@masaaki_rey",
   // TODO: MASAAKI公式YouTube URLに差し替えてください。
-  youtube: "https://example.com/youtube",
+  youtube: "https://www.youtube.com/@masaaki_official-music",
 };
 
 export const lives = [
