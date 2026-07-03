@@ -432,119 +432,38 @@ main {
   font-weight: 800;
 }
 
-.social-panel {
+.home-social-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.home-social-card {
+  display: grid;
+  gap: 14px;
+  align-content: start;
+  padding: 22px;
   border: 1px solid var(--line);
   border-radius: 8px;
-  background: rgba(6, 19, 36, 0.62);
-  overflow: hidden;
+  background: rgba(13, 37, 66, 0.58);
 }
 
-.tab-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 1px;
-  background: var(--line);
-}
-
-.tab-list button {
-  min-height: 48px;
-  border: 0;
-  border-radius: 0;
-  background: var(--navy-800);
-  color: var(--muted);
-  cursor: pointer;
-  font-weight: 800;
-}
-
-.tab-list button.is-active {
-  background: var(--blue-500);
-  color: #02101f;
-}
-
-.embed-box {
-  padding: 18px;
-}
-
-.embed-placeholder {
-  display: grid;
+.home-social-card span {
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
   place-items: center;
-  min-height: 360px;
-  padding: 24px;
-  border: 1px dashed rgba(117, 201, 255, 0.36);
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.035);
-  text-align: center;
+  border-radius: 999px;
+  background: rgba(45, 156, 255, 0.16);
+  color: var(--blue-300);
+  font-size: 0.78rem;
+  font-weight: 900;
 }
 
-.x-embed {
-  min-height: 500px;
-  background: #05080e;
-}
-
-.embed-placeholder p {
+.home-social-card h3 {
   margin: 0;
   color: var(--white);
-  font-weight: 800;
-}
-
-.embed-placeholder span {
-  display: block;
-  margin-top: 6px;
-  color: var(--muted);
-  font-size: 0.86rem;
-}
-
-.youtube-frame {
-  position: relative;
-  width: 100%;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #02070d;
-  aspect-ratio: 16 / 9;
-}
-
-.youtube-frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.youtube-latest-panel {
-  display: grid;
-  gap: 12px;
-}
-
-.youtube-latest-frame {
-  position: relative;
-  width: 100%;
-  height: 220px;
-  overflow: hidden;
-  border: 1px solid var(--line);
-  border-radius: 8px;
-  background: #02070d;
-}
-
-.youtube-latest-frame iframe {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  border: 0;
-}
-
-.social-actions {
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  padding: 0 18px 18px;
-}
-
-.social-actions > a:first-child {
-  color: var(--blue-300);
-  font-weight: 700;
+  font-size: 1.2rem;
+  line-height: 1.25;
 }
 
 .two-column {
@@ -700,6 +619,52 @@ main {
   min-height: 340px;
 }
 
+.profile-tagline {
+  color: var(--white) !important;
+  font-size: 1.08rem;
+  font-weight: 900;
+}
+
+.profile-info-list {
+  display: grid;
+  gap: 12px;
+  margin: 0;
+}
+
+.profile-info-list div {
+  display: grid;
+  gap: 6px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(13, 37, 66, 0.58);
+}
+
+.profile-info-list dt {
+  color: var(--blue-300);
+  font-size: 0.82rem;
+  font-weight: 900;
+}
+
+.profile-info-list dd {
+  margin: 0;
+  color: var(--white);
+}
+
+.profile-history-list {
+  display: grid;
+  gap: 12px;
+}
+
+.profile-history-list p {
+  margin: 0;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: rgba(13, 37, 66, 0.58);
+  color: var(--muted);
+}
+
 .social-link-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
@@ -726,10 +691,6 @@ main {
   background: rgba(45, 156, 255, 0.16);
   color: var(--blue-300);
   font-size: 0.78rem;
-}
-
-.inline-button {
-  margin-top: 18px;
 }
 
 .memory-card {
@@ -884,14 +845,8 @@ main {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .tab-list {
+  .home-social-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
-  }
-
-  .social-actions {
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-between;
   }
 
   .two-column {
@@ -919,8 +874,8 @@ main {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
-  .youtube-latest-frame {
-    height: 450px;
+  .profile-info-list {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .floating-actions {

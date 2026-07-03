@@ -29,15 +29,33 @@ export const socialLinks = {
   youtube: "https://youtube.com/@masaaki_official-music",
 };
 
-// TODO: 最新動画のYouTube動画URLに差し替えてください。例: https://www.youtube.com/watch?v=VIDEO_ID
-export const youtubeLatest = "";
-
 export const socialPlatforms = [
-  { id: "instagram", label: "Instagram", mark: "IG", cta: "MASAAKIのInstagramを見る" },
-  { id: "x", label: "X", mark: "X", cta: "MASAAKIのXを見る" },
-  { id: "tiktok", label: "TikTok", mark: "TT", cta: "MASAAKIのTikTokを見る" },
-  { id: "youtube", label: "YouTube", mark: "YT", cta: "YouTubeで見る" },
+  { id: "instagram", label: "Instagram", mark: "IG", cta: "写真を見る" },
+  { id: "x", label: "X", mark: "X", cta: "最新情報を見る" },
+  { id: "tiktok", label: "TikTok", mark: "TT", cta: "動画を見る" },
+  { id: "youtube", label: "YouTube", mark: "YT", cta: "MVを見る" },
 ];
+
+export const profile = {
+  tagline: "ラップとダンスを融合させた、ストイックでファン思いのアーティスト",
+  paragraphs: [
+    "感情の深みや内面的なテーマをラップで表現しつつ、ライブでは高エネルギーのダンスパフォーマンスを展開。単なる「聴かせる」だけでなく「魅せる」タイプの総合パフォーマーです。",
+    "このページではMASAAKIの活動を応援するための公式SNSと動画への導線をまとめています。",
+  ],
+  basicInfo: [
+    { label: "生年月日", value: "4月28日" },
+    { label: "身長 / 体重", value: "177cm / 67kg" },
+    { label: "趣味", value: "NBA観戦、洋画・ドラマ、チェス、RPGゲーム" },
+    { label: "特技", value: "バスケットボール、長距離ランニング、英会話" },
+  ],
+  history: [
+    "2018年頃: ファッション・モデル/イベント活動開始。KANSAI COLLECTION AUTUMN/WINTER、Shibuya Star Fes、BEAUTY MY SELECTION TOKYOなどに出演。ラジオ出演やオーディション（Ressaca Friends公式レポーター）も経験。",
+    "2022年: 1st Full Album 『From Abyss』 リリース（Baseショップなどで購入可能。現在もサブスク未解禁の曲が多い）。",
+    "2023年: ダンスボーカルユニットScratch loop加入。",
+    "2024年: 日本テレビ系ドラマ『GO HOME〜警視庁身元不明人相談室〜』出演。",
+    "現在: インディペンデントで活動。YouTubeでオリジナルラップ曲のMVやK-Popアーティストのダンスカバーを積極的に投稿。ライブパフォーマンスを中心にファンとの接点を増やしている。",
+  ],
+};
 
 export const lives = [
   {

@@ -5,47 +5,17 @@ import {
   memories,
   navItems,
   news,
+  profile,
   reports,
   socialLinks,
   socialPlatforms,
   supportProject,
   supporters,
-  youtubeLatest,
 } from "./data/siteData.js";
 
 function getRouteFromHash() {
   const hash = window.location.hash.replace("#", "");
   return navItems.some((item) => item.id === hash) ? hash : "home";
-}
-
-function getYouTubeEmbedUrl(videoUrl) {
-  if (!videoUrl) return "";
-
-  try {
-    const url = new URL(videoUrl);
-    const host = url.hostname.replace(/^www\./, "");
-
-    if (host === "youtu.be") {
-      const videoId = url.pathname.split("/").filter(Boolean)[0];
-      return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
-    }
-
-    if (host === "youtube.com" || host === "m.youtube.com") {
-      if (url.pathname === "/watch") {
-        const videoId = url.searchParams.get("v");
-        return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
-      }
-
-      const [type, videoId] = url.pathname.split("/").filter(Boolean);
-      if (type === "shorts" || type === "embed") {
-        return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
-      }
-    }
-  } catch {
-    return "";
-  }
-
-  return "";
 }
 
 function App() {
@@ -184,7 +154,7 @@ function HomePage() {
 
       <section className="section container">
         <SectionHeading eyebrow="LATEST FROM MASAAKI" title="SNS最新投稿" />
-        <SocialTabs />
+        <SocialCardGrid />
       </section>
 
       <section className="section container two-column">
@@ -318,38 +288,43 @@ function SupportPage() {
 
 function ProfilePage() {
   return (
-    <PageShell eyebrow="PROFILE" title="MASAAKI" intro="声とステージで、日々の気持ちにそっと光を灯してくれるアーティスト。">
+    <PageShell eyebrow="PROFILE" title="MASAAKI" intro={profile.tagline}>
       <section className="section compact-section profile-layout">
         <ImageWithFallback src="/images/profile.jpg" alt="MASAAKIプロフィール画像" />
         <div>
           <p className="eyebrow">ARTIST PROFILE</p>
           <h2>MASAAKI</h2>
-          <p>
-            {/* TODO: 公式プロフィール確認後、紹介文を差し替えてください。 */}
-            透明感のある歌声と、ライブハウスに似合う距離の近いパフォーマンスが魅力のアーティスト。日常の中にある小さな感情を、まっすぐな言葉とメロディで届けています。
-          </p>
-          <p>
-            {/* TODO: 活動歴・リリース情報などを追記してください。 */}
-            このページでは、MASAAKIの活動を応援するための公式SNSと動画への導線をまとめています。
-          </p>
+          <p className="profile-tagline">{profile.tagline}</p>
+          {profile.paragraphs.map((text) => (
+            <p key={text}>{text}</p>
+          ))}
+        </div>
+      </section>
+
+      <section className="section compact-section">
+        <SectionHeading eyebrow="BASIC INFO" title="基本情報" />
+        <dl className="profile-info-list">
+          {profile.basicInfo.map((item) => (
+            <div key={item.label}>
+              <dt>{item.label}</dt>
+              <dd>{item.value}</dd>
+            </div>
+          ))}
+        </dl>
+      </section>
+
+      <section className="section compact-section">
+        <SectionHeading eyebrow="HISTORY" title="経歴" />
+        <div className="profile-history-list">
+          {profile.history.map((item) => (
+            <p key={item}>{item}</p>
+          ))}
         </div>
       </section>
 
       <section className="section compact-section">
         <SectionHeading eyebrow="OFFICIAL SNS" title="公式SNS" />
         <SocialLinkGrid />
-      </section>
-
-      <section className="section compact-section">
-        <SectionHeading eyebrow="YOUTUBE" title="Official YouTube" />
-        <div className="embed-placeholder">
-          {/* TODO: YouTube embed code can be added here later. */}
-          <p>YouTubeの埋め込みは後から追加できます。</p>
-          <span>まずは公式YouTubeへのリンクだけを設定しています。</span>
-        </div>
-        <a className="button primary inline-button" href={socialLinks.youtube} target="_blank" rel="noreferrer">
-          YouTubeを見る
-        </a>
       </section>
     </PageShell>
   );
@@ -492,78 +467,18 @@ function LiveCard({ live }) {
   );
 }
 
-function SocialTabs() {
-  const [activeTab, setActiveTab] = useState("instagram");
-  const tab = socialPlatforms.find((item) => item.id === activeTab);
-
+function SocialCardGrid() {
   return (
-    <div className="social-panel">
-      <div className="tab-list" role="tablist" aria-label="SNS切り替え">
-        {socialPlatforms.map((item) => (
-          <button
-            key={item.id}
-            className={activeTab === item.id ? "is-active" : ""}
-            type="button"
-            role="tab"
-            aria-selected={activeTab === item.id}
-            onClick={() => setActiveTab(item.id)}
-          >
-            {item.label}
-          </button>
-        ))}
-      </div>
-      <div className="embed-box" role="tabpanel">
-        <SocialTabContent platform={tab} />
-      </div>
-      {activeTab !== "youtube" && (
-        <div className="social-actions">
-          <a href={socialLinks[activeTab]} target="_blank" rel="noreferrer">
-            投稿が表示されない場合はこちら
+    <div className="home-social-grid">
+      {socialPlatforms.map((item) => (
+        <article className="home-social-card" key={item.id}>
+          <span>{item.mark}</span>
+          <h3>{item.label}</h3>
+          <a className="button primary" href={socialLinks[item.id]} target="_blank" rel="noreferrer">
+            {item.cta}
           </a>
-          <a className="button primary" href={socialLinks[activeTab]} target="_blank" rel="noreferrer">
-            {tab.cta}
-          </a>
-        </div>
-      )}
-    </div>
-  );
-}
-
-function SocialTabContent({ platform }) {
-  if (platform.id === "youtube") {
-    const youtubeEmbedUrl = getYouTubeEmbedUrl(youtubeLatest);
-
-    return (
-      <div className="youtube-latest-panel">
-        {/* TODO: src/data/siteData.js の youtubeLatest に最新動画URLを設定してください。 */}
-        {youtubeEmbedUrl ? (
-          <div className="youtube-latest-frame">
-            <iframe
-              title="MASAAKI latest YouTube video"
-              src={youtubeEmbedUrl}
-              loading="lazy"
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-              allowFullScreen
-            />
-          </div>
-        ) : (
-          <div className="embed-placeholder">
-            <p>最新動画URLを設定してください</p>
-            <span>siteData.js の youtubeLatest に動画URLを入れると、ここに最新動画が表示されます。</span>
-          </div>
-        )}
-        <a className="button primary" href={socialLinks.youtube} target="_blank" rel="noreferrer">
-          YouTubeで動画一覧を見る
-        </a>
-      </div>
-    );
-  }
-
-  return (
-    <div className="embed-placeholder">
-      {/* TODO: SNS embed code can be added here later. */}
-      <p>{platform.label}の最新投稿リンク</p>
-      <span>埋め込みは後から追加できます。今はリンクボタンから公式SNSへ移動します。</span>
+        </article>
+      ))}
     </div>
   );
 }
