@@ -37,17 +37,30 @@ export const socialPlatforms = [
 ];
 
 export const profileData = {
+  pageEyebrow: "PROFILE",
+  name: "MASAAKI",
+  image: "/images/profile.jpg",
+  imageAlt: "MASAAKIプロフィール画像",
+  sectionEyebrow: "ARTIST PROFILE",
   tagline: "ラップとダンスを融合させた、ストイックでファン思いのアーティスト",
   paragraphs: [
     "感情の深みや内面的なテーマをラップで表現しつつ、ライブでは高エネルギーのダンスパフォーマンスを展開。単なる「聴かせる」だけでなく「魅せる」タイプの総合パフォーマーです。",
     "このページではMASAAKIの活動を応援するための公式SNSと動画への導線をまとめています。",
   ],
+  basicInfoHeading: {
+    eyebrow: "BASIC INFO",
+    title: "基本情報",
+  },
   basicInfo: [
     { label: "生年月日", value: "4月28日" },
     { label: "身長 / 体重", value: "177cm / 67kg" },
     { label: "趣味", value: "NBA観戦、洋画・ドラマ、チェス、RPGゲーム" },
     { label: "特技", value: "バスケットボール、長距離ランニング、英会話" },
   ],
+  historyHeading: {
+    eyebrow: "HISTORY",
+    title: "経歴",
+  },
   history: [
     "2018年頃: ファッション・モデル/イベント活動開始。KANSAI COLLECTION AUTUMN/WINTER、Shibuya Star Fes、BEAUTY MY SELECTION TOKYOなどに出演。ラジオ出演やオーディション（Ressaca Friends公式レポーター）も経験。",
     "2022年: 1st Full Album 『From Abyss』 リリース（Baseショップなどで購入可能。現在もサブスク未解禁の曲が多い）。",
@@ -55,6 +68,10 @@ export const profileData = {
     "2024年: 日本テレビ系ドラマ『GO HOME〜警視庁身元不明人相談室〜』出演。",
     "現在: インディペンデントで活動。YouTubeでオリジナルラップ曲のMVやK-Popアーティストのダンスカバーを積極的に投稿。ライブパフォーマンスを中心にファンとの接点を増やしている。",
   ],
+  snsHeading: {
+    eyebrow: "OFFICIAL SNS",
+    title: "公式SNS",
+  },
 };
 
 export const lives = [

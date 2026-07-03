@@ -288,12 +288,12 @@ function SupportPage() {
 
 function ProfilePage() {
   return (
-    <PageShell eyebrow="PROFILE" title="MASAAKI" intro={profileData.tagline}>
+    <PageShell eyebrow={profileData.pageEyebrow} title={profileData.name} intro={profileData.tagline}>
       <section className="section compact-section profile-layout">
-        <ImageWithFallback src="/images/profile.jpg" alt="MASAAKIプロフィール画像" />
+        <ImageWithFallback src={profileData.image} alt={profileData.imageAlt} />
         <div>
-          <p className="eyebrow">ARTIST PROFILE</p>
-          <h2>MASAAKI</h2>
+          <p className="eyebrow">{profileData.sectionEyebrow}</p>
+          <h2>{profileData.name}</h2>
           <p className="profile-tagline">{profileData.tagline}</p>
           {profileData.paragraphs.map((text) => (
             <p key={text}>{text}</p>
@@ -302,7 +302,10 @@ function ProfilePage() {
       </section>
 
       <section className="section compact-section">
-        <SectionHeading eyebrow="BASIC INFO" title="基本情報" />
+        <SectionHeading
+          eyebrow={profileData.basicInfoHeading.eyebrow}
+          title={profileData.basicInfoHeading.title}
+        />
         <dl className="profile-info-list">
           {profileData.basicInfo.map((item) => (
             <div key={item.label}>
@@ -314,7 +317,10 @@ function ProfilePage() {
       </section>
 
       <section className="section compact-section">
-        <SectionHeading eyebrow="HISTORY" title="経歴" />
+        <SectionHeading
+          eyebrow={profileData.historyHeading.eyebrow}
+          title={profileData.historyHeading.title}
+        />
         <div className="profile-history-list">
           {profileData.history.map((item) => (
             <p key={item}>{item}</p>
@@ -323,7 +329,7 @@ function ProfilePage() {
       </section>
 
       <section className="section compact-section">
-        <SectionHeading eyebrow="OFFICIAL SNS" title="公式SNS" />
+        <SectionHeading eyebrow={profileData.snsHeading.eyebrow} title={profileData.snsHeading.title} />
         <SocialLinkGrid />
       </section>
     </PageShell>
