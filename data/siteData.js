@@ -29,6 +29,9 @@ export const socialLinks = {
   youtube: "https://youtube.com/@masaaki_official-music",
 };
 
+// TODO: 最新動画のYouTube動画URLに差し替えてください。例: https://www.youtube.com/watch?v=VIDEO_ID
+export const youtubeLatest = "";
+
 export const socialPlatforms = [
   { id: "instagram", label: "Instagram", mark: "IG", cta: "MASAAKIのInstagramを見る" },
   { id: "x", label: "X", mark: "X", cta: "MASAAKIのXを見る" },

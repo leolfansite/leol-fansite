@@ -10,11 +10,42 @@ import {
   socialPlatforms,
   supportProject,
   supporters,
+  youtubeLatest,
 } from "./data/siteData.js";
 
 function getRouteFromHash() {
   const hash = window.location.hash.replace("#", "");
   return navItems.some((item) => item.id === hash) ? hash : "home";
+}
+
+function getYouTubeEmbedUrl(videoUrl) {
+  if (!videoUrl) return "";
+
+  try {
+    const url = new URL(videoUrl);
+    const host = url.hostname.replace(/^www\./, "");
+
+    if (host === "youtu.be") {
+      const videoId = url.pathname.split("/").filter(Boolean)[0];
+      return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+    }
+
+    if (host === "youtube.com" || host === "m.youtube.com") {
+      if (url.pathname === "/watch") {
+        const videoId = url.searchParams.get("v");
+        return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+      }
+
+      const [type, videoId] = url.pathname.split("/").filter(Boolean);
+      if (type === "shorts" || type === "embed") {
+        return videoId ? `https://www.youtube.com/embed/${videoId}` : "";
+      }
+    }
+  } catch {
+    return "";
+  }
+
+  return "";
 }
 
 function App() {
@@ -500,13 +531,29 @@ function SocialTabs() {
 
 function SocialTabContent({ platform }) {
   if (platform.id === "youtube") {
+    const youtubeEmbedUrl = getYouTubeEmbedUrl(youtubeLatest);
+
     return (
-      <div className="youtube-channel-card">
-        {/* TODO: YouTubeチャンネルIDが分かったら、ここを動画一覧埋め込みに変更してください。 */}
-        <p className="youtube-channel-title">YouTubeチャンネル</p>
-        <p className="youtube-channel-copy">MASAAKIの動画一覧はこちら</p>
+      <div className="youtube-latest-panel">
+        {/* TODO: src/data/siteData.js の youtubeLatest に最新動画URLを設定してください。 */}
+        {youtubeEmbedUrl ? (
+          <div className="youtube-latest-frame">
+            <iframe
+              title="MASAAKI latest YouTube video"
+              src={youtubeEmbedUrl}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowFullScreen
+            />
+          </div>
+        ) : (
+          <div className="embed-placeholder">
+            <p>最新動画URLを設定してください</p>
+            <span>siteData.js の youtubeLatest に動画URLを入れると、ここに最新動画が表示されます。</span>
+          </div>
+        )}
         <a className="button primary" href={socialLinks.youtube} target="_blank" rel="noreferrer">
-          YouTubeで見る
+          YouTubeで動画一覧を見る
         </a>
       </div>
     );
