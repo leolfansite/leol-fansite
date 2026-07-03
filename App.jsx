@@ -5,7 +5,7 @@ import {
   memories,
   navItems,
   news,
-  profile,
+  profileData,
   reports,
   socialLinks,
   socialPlatforms,
@@ -288,14 +288,14 @@ function SupportPage() {
 
 function ProfilePage() {
   return (
-    <PageShell eyebrow="PROFILE" title="MASAAKI" intro={profile.tagline}>
+    <PageShell eyebrow="PROFILE" title="MASAAKI" intro={profileData.tagline}>
       <section className="section compact-section profile-layout">
         <ImageWithFallback src="/images/profile.jpg" alt="MASAAKIプロフィール画像" />
         <div>
           <p className="eyebrow">ARTIST PROFILE</p>
           <h2>MASAAKI</h2>
-          <p className="profile-tagline">{profile.tagline}</p>
-          {profile.paragraphs.map((text) => (
+          <p className="profile-tagline">{profileData.tagline}</p>
+          {profileData.paragraphs.map((text) => (
             <p key={text}>{text}</p>
           ))}
         </div>
@@ -304,7 +304,7 @@ function ProfilePage() {
       <section className="section compact-section">
         <SectionHeading eyebrow="BASIC INFO" title="基本情報" />
         <dl className="profile-info-list">
-          {profile.basicInfo.map((item) => (
+          {profileData.basicInfo.map((item) => (
             <div key={item.label}>
               <dt>{item.label}</dt>
               <dd>{item.value}</dd>
@@ -316,7 +316,7 @@ function ProfilePage() {
       <section className="section compact-section">
         <SectionHeading eyebrow="HISTORY" title="経歴" />
         <div className="profile-history-list">
-          {profile.history.map((item) => (
+          {profileData.history.map((item) => (
             <p key={item}>{item}</p>
           ))}
         </div>

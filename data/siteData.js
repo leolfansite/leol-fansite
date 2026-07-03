@@ -36,7 +36,7 @@ export const socialPlatforms = [
   { id: "youtube", label: "YouTube", mark: "YT", cta: "MVを見る" },
 ];
 
-export const profile = {
+export const profileData = {
   tagline: "ラップとダンスを融合させた、ストイックでファン思いのアーティスト",
   paragraphs: [
     "感情の深みや内面的なテーマをラップで表現しつつ、ライブでは高エネルギーのダンスパフォーマンスを展開。単なる「聴かせる」だけでなく「魅せる」タイプの総合パフォーマーです。",
