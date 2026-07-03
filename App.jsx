@@ -6,7 +6,6 @@ import {
   navItems,
   news,
   reports,
-  socialEmbedUrls,
   socialLinks,
   socialPlatforms,
   supportProject,
@@ -485,14 +484,16 @@ function SocialTabs() {
       <div className="embed-box" role="tabpanel">
         <SocialTabContent platform={tab} />
       </div>
-      <div className="social-actions">
-        <a href={socialLinks[activeTab]} target="_blank" rel="noreferrer">
-          投稿が表示されない場合はこちら
-        </a>
-        <a className="button primary" href={socialLinks[activeTab]} target="_blank" rel="noreferrer">
-          {tab.cta}
-        </a>
-      </div>
+      {activeTab !== "youtube" && (
+        <div className="social-actions">
+          <a href={socialLinks[activeTab]} target="_blank" rel="noreferrer">
+            投稿が表示されない場合はこちら
+          </a>
+          <a className="button primary" href={socialLinks[activeTab]} target="_blank" rel="noreferrer">
+            {tab.cta}
+          </a>
+        </div>
+      )}
     </div>
   );
 }
@@ -500,14 +501,13 @@ function SocialTabs() {
 function SocialTabContent({ platform }) {
   if (platform.id === "youtube") {
     return (
-      <div className="youtube-embed-frame">
-        <iframe
-          title="MASAAKI Official YouTube"
-          src={socialEmbedUrls.youtube}
-          loading="lazy"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
+      <div className="youtube-channel-card">
+        {/* TODO: YouTubeチャンネルIDが分かったら、ここを動画一覧埋め込みに変更してください。 */}
+        <p className="youtube-channel-title">YouTubeチャンネル</p>
+        <p className="youtube-channel-copy">MASAAKIの動画一覧はこちら</p>
+        <a className="button primary" href={socialLinks.youtube} target="_blank" rel="noreferrer">
+          YouTubeで見る
+        </a>
       </div>
     );
   }

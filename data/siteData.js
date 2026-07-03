@@ -26,12 +26,7 @@ export const socialLinks = {
   // TODO: MASAAKI公式TikTok URLに差し替えてください。
   tiktok: "https://www.tiktok.com/@masaaki_rey?is_from_webapp=1&sender_device=pc",
   // TODO: MASAAKI公式YouTube URLに差し替えてください。
-  youtube: "https://www.youtube.com/@masaaki_official-music",
-};
-
-export const socialEmbedUrls = {
-  // TODO: YouTubeのチャンネルIDまたは再生リストIDが分かり次第、公式の埋め込みURLに差し替えてください。
-  youtube: "https://www.youtube.com/embed?listType=user_uploads&list=masaaki_official-music",
+  youtube: "https://youtube.com/@masaaki_official-music",
 };
 
 export const socialPlatforms = [
